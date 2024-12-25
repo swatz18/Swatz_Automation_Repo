@@ -1,9 +1,15 @@
 package stepDefinitions;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.After;
@@ -17,9 +23,13 @@ public class LoginStepDef {
 	LoginPageObjects lo;
 	
 	@Before
-	public void setup()
+	public void setup() throws MalformedURLException
 	{
-		driver=new EdgeDriver();
+//		DesiredCapabilities capabilities=new DesiredCapabilities();
+//		capabilities.setPlatform(Platform.WINDOWS);
+//		capabilities.setBrowserName("chrome");
+//		driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+		driver= new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 	}
