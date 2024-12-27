@@ -25,11 +25,11 @@ public class LoginStepDef {
 	@Before
 	public void setup() throws MalformedURLException
 	{
-//		DesiredCapabilities capabilities=new DesiredCapabilities();
-//		capabilities.setPlatform(Platform.WINDOWS);
-//		capabilities.setBrowserName("chrome");
-//		driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
-		driver= new ChromeDriver();
+		DesiredCapabilities capabilities=new DesiredCapabilities();
+		capabilities.setPlatform(Platform.WINDOWS);
+		capabilities.setBrowserName("chrome");
+		driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+//		driver= new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 	}

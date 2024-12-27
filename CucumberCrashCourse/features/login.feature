@@ -3,13 +3,14 @@ Feature: Login Functionality
 
 Background:
 	Given User navigates to Opencart Application Login page
-  
+ 
+ @valid 
  Scenario: Valid Login To OpenCart Application
     Given User enters valid username and password
     When User cliks on Login
     Then Login should be Successfull
 
-  
+ @invalid
  Scenario Outline: Invalid Login To OpenCart Application
     Given User enters invalid "<username>" and "<password>"
     When user clicks login button

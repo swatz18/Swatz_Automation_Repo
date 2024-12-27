@@ -6,8 +6,11 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features={"./features"},
 				  glue={"stepDefinitions"},
-				  plugin={"pretty","html:reports/myreport.html"},
-				  monochrome=true)
+				  plugin={"pretty","html:reports/myreport.html",
+						  "rerun:target/rerun.txt"},
+				  monochrome=true,
+				  publish=true,
+				  tags="@invalid")
 public class TestRunner extends AbstractTestNGCucumberTests{
 	@Override
 	@DataProvider(parallel=true)
