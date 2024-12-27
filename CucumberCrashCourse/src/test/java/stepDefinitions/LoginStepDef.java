@@ -27,7 +27,7 @@ public class LoginStepDef {
 	{
 		DesiredCapabilities capabilities=new DesiredCapabilities();
 		capabilities.setPlatform(Platform.WINDOWS);
-		capabilities.setBrowserName("MicrosoftEdge");
+		capabilities.setBrowserName("firefox");
 		driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
 		//driver= new ChromeDriver();
 		driver.manage().window().maximize();
