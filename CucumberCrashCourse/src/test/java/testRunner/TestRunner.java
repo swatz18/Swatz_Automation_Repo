@@ -5,12 +5,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features={"./features"},
+                 //features={"@target/rerun.txt"},
 				  glue={"stepDefinitions"},
 				  plugin={"pretty","html:reports/myreport.html",
 						  "rerun:target/rerun.txt"},
 				  monochrome=true,
-				  publish=true,
-				  tags="@invalid")
+				  publish=true)
+				  //tags="@invalid")
 public class TestRunner extends AbstractTestNGCucumberTests{
 	@Override
 	@DataProvider(parallel=true)
