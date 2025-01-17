@@ -21,7 +21,7 @@ public class HomeStepDef {
 	boolean res;
 		@Given("user lands in {string} application")
 		public void user_lands_in_application(String appln) {
-			driver=new EdgeDriver();
+			driver=new ChromeDriver();
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)) ;
 		    driver.manage().window().maximize();
 		    driver.get("https://www."+appln+".com");
