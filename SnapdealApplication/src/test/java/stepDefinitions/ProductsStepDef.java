@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.cucumber.java.en.*;
 import pageObjects.HomePageObjects;
@@ -20,7 +21,7 @@ public class ProductsStepDef {
 	
 	@Given("Im in Snapdeal Product Page")
 	public void im_in_snapdeal_product_page() {
-		driver=new ChromeDriver();
+		driver=new FirefoxDriver();
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)) ;
 	    driver.manage().window().maximize();
 	    driver.get("https://www.snapdeal.com");
