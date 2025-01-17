@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
 import static org.junit.Assert.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,10 +21,10 @@ public class HomeStepDef {
 	boolean res;
 		@Given("user lands in {string} application")
 		public void user_lands_in_application(String appln) {
-		    driver=new ChromeDriver();
+			driver=new EdgeDriver();
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)) ;
-			driver.get("https://www."+appln+".com");
 		    driver.manage().window().maximize();
+		    driver.get("https://www."+appln+".com");
 		}
 
 		@When("user cheks for {string} and enters {string} in search bar")
@@ -51,6 +53,6 @@ public class HomeStepDef {
 			}
 			driver.quit();
 		}
-
+			
 	}
 

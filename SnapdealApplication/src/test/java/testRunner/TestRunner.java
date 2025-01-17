@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features="src/test/java/features",
 				glue= {"stepDefinitions"},
 				plugin="json:target/jsonReports/cucumber-reports.json",
-				tags="@home",
+				//tags="@home",
 				publish=true)
 public class TestRunner {
 
