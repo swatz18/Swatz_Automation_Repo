@@ -1,0 +1,31 @@
+function myFunction() {
+//get active sheet
+  let sheet=SpreadsheetApp.getActiveSpreadsheet();
+
+//to get Recipieints sheet which has to list
+  let to=sheet.getSheetByName("Receipients");
+
+//to get Mail sheet which has subject and body
+  let mail=sheet.getSheetByName("Mail");
+  let sub=mail.getRange('A2').getValue();
+  let body=mail.getRange('B2').getValue();
+
+// to get resume from drive from resume Folder
+  var resumefolder=DriveApp.getFoldersByName("Resume").next();
+  var resumefile=DriveApp.getFilesByName("Resume.pdf").next();
+
+// to get lastrow of sheet to iterate through recipients list
+  let lastRow=to.getLastRow();
+  for(let i=2;i<=lastRow;i++)
+  { 
+    let sendto=to.getRange(i,1).getValue();
+//syntax to send email with attachments
+    MailApp.sendEmail({
+                        to:sendto,
+                        subject:sub,
+                        body:body,
+                        attachments:[resumefile.getAs(MimeType.PDF)]
+                       });
+  }
+  
+}
