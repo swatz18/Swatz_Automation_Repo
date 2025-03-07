@@ -16,8 +16,11 @@ pipeline {
         }
         stage('Report') {
             steps {
-               echo "mvn verify"
-            }
+               dir("G:\\Testing\\Learnings\\Eclipse\\NaukriApp")
+                {
+                    bat "allure generate --single-file allure-results"
+                    emailext attachmentsPattern: 'allure-reports\\index.html', body: 'PFA Allure report of Scripted pipeline', subject: 'Allure Report', to: 'swathihsnk26@gmail.com'
+                }
         }
     }
 }
